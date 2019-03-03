@@ -69,20 +69,18 @@ class Application(tk.Frame):
             v.destroy()
         self.display_text()
 
+    def choose_text(self, my_u):
+        self.chosen_text = my_u
+        self.choose()
+
     def show_names(self):
         print("Showing text names")
         self.hi_there.destroy()
         name_font = tk.font.Font(family='Helvetica', size=10, weight='bold')
         self.text_buttons = {}
         for my_u in files_in_dir:
-            s = """def choose_text{0}(self):
-                self.chosen_text = "{1}"
-                self.choose()
-Application.choose_text{0} = choose_text{0}
-self.text_buttons[my_u] = tk.Button(self, text=my_u, padx=5, pady=5, height=5, width=20, font=name_font, command=self.choose_text{0})
-            
-            """.format(''.join([i for i in my_u[:-4] if i.isalpha()]), my_u)
-            exec(s)
+            self.text_buttons[my_u] = tk.Button(self, text=my_u, padx=5, pady=5, height=5, width=20, font=name_font,
+                                                command=lambda my_u=my_u: self.choose_text(my_u))
             self.text_buttons[my_u].pack(expand=True)
 
     def display_text(self):
