@@ -63,7 +63,7 @@ class Application(tk.Frame):
         self.quit.pack(side="bottom")
 
     def choose(self):
-        print("I'm chosen", self.chosen_text)
+        print("I'm chosen: ", self.chosen_text)
         self.it = read_text(self.chosen_text)
         for u, v in self.text_buttons.items():
             v.destroy()
@@ -120,7 +120,6 @@ self.text_buttons[my_u] = tk.Button(self, text=my_u, padx=5, pady=5, height=5, w
 
 root = tk.Tk()
 root.title('RapidReader')
-root.lift()
 root.attributes('-topmost', True)
 app = Application(master=root)
 app.mainloop()
