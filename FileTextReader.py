@@ -16,4 +16,4 @@ print("Text Directory", text_dir)
 
 map_to_text = {u: lambda u=u: open(os.path.join(text_dir, u), "r")
                for u in os.listdir(text_dir) if os.path.isfile(os.path.join(text_dir, u))}
-run_application(library=map_to_text)
+run_application(library=map_to_text, name="FileTextReader")

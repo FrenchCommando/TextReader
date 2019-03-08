@@ -16,7 +16,7 @@ def get_content_safe(p):
         return StringIO(page(selected_p).content)
 
 
-n = 5
+n = 15
 map_content = {p: lambda p=p: get_content_safe(p) for p in random(n)}
 
-run_application(library=map_content)
+run_application(library=map_content, name="WikiReader")

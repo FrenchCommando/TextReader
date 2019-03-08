@@ -118,9 +118,9 @@ class Application(tk.Frame):
         self.canvas.after(100, refresh)
 
 
-def run_application(library):
+def run_application(library, name='RapidReader'):
     root = tk.Tk()
-    root.title('RapidReader')
+    root.title(name)
     root.attributes('-topmost', True)
     app = Application(master=root, library=library)
     app.mainloop()
